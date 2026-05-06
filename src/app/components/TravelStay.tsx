@@ -124,9 +124,14 @@ export default function TravelStay() {
               </div>
 
               <div className="pt-4 border-t border-[#D4A574]/20">
-                <button className="w-full py-3 bg-[#A7C4A0] text-white rounded-xl hover:bg-[#96B38F] transition-colors">
+                <a 
+                  href="https://maps.google.com/?q=The+Grand+Palace,+Rohtak,+Haryana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-3 bg-[#A7C4A0] text-center text-white rounded-xl hover:bg-[#96B38F] transition-colors"
+                >
                   View on Google Maps
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -137,13 +142,17 @@ export default function TravelStay() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-white rounded-2xl p-8 shadow-lg aspect-video flex items-center justify-center"
+          className="bg-white rounded-2xl shadow-lg aspect-video flex items-center justify-center overflow-hidden"
         >
-          <div className="text-center text-[#6B6B6B]">
-            <MapPin className="w-12 h-12 mx-auto mb-4 text-[#D4A574]" />
-            <p>Map Embed Placeholder</p>
-            <p className="text-sm mt-2">The Grand Palace, Rohtak, Haryana</p>
-          </div>
+          <iframe 
+            src="https://maps.google.com/maps?q=The%20Grand%20Palace,%20Rohtak,%20Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </motion.div>
       </div>
     </section>
