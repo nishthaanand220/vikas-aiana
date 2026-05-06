@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "Who can I contact for more information?",
-    answer: "For any questions, please contact: Vikas at +91 98765 43210 or Aiana at +91 98765 43211. Our families are also happy to help!",
+    answer: "For any questions, please contact: Vikas at +91 88828 11899 or Aiana at +91 91381 77648. Our families are also happy to help!",
   },
 ];
 

@@ -78,11 +78,11 @@ export default function Footer() {
             <div className="space-y-2 text-sm opacity-90">
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <Phone className="w-4 h-4" />
-                <span>Vikas: +91 98765 43210</span>
+                <span>Vikas: +91 88828 11899</span>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <Phone className="w-4 h-4" />
-                <span>Aiana: +91 98765 43211</span>
+                <span>Aiana: +91 91381 77648</span>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <Mail className="w-4 h-4" />
