@@ -15,6 +15,13 @@ export default function RSVP() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const subject = `Wedding RSVP: ${formData.name}`;
+    const body = `Name: ${formData.name}\nNumber of Guests: ${formData.guests}\nEvents Attending: ${formData.attending.length > 0 ? formData.attending.join(", ") : "None"}\nDietary Preferences: ${formData.dietary || "None"}`;
+
+    const mailtoLink = `mailto:nishthaanand220@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
