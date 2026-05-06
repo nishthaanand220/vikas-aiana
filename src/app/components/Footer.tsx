@@ -11,7 +11,7 @@ export default function Footer() {
   });
 
   useEffect(() => {
-    const weddingDate = new Date("2026-10-20T06:00:00").getTime();
+    const weddingDate = new Date("2026-10-18T06:00:00").getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();

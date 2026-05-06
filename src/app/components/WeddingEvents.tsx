@@ -4,7 +4,7 @@ import { Calendar, Clock, MapPin, Sparkles } from "lucide-react";
 const events = [
   {
     name: "Morning Pheras",
-    date: "October 20, 2026",
+    date: "18th October 2026",
     time: "9:00 AM - 1:00 PM",
     venue: "The Grand Palace, Rohtak",
     dress: "Traditional Indian",
@@ -13,7 +13,7 @@ const events = [
   },
   {
     name: "Evening Reception",
-    date: "October 20, 2026",
+    date: "18th October 2026",
     time: "7:00 PM onwards",
     venue: "Grand Ballroom, The Grand Palace",
     dress: "Formal / Evening Wear",

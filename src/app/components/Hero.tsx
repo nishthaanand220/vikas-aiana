@@ -26,10 +26,10 @@ export default function Hero() {
           <h1 className="mb-6" style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', fontWeight: 300, lineHeight: 1.2 }}>
             Vikas <span className="opacity-70">&</span> Aiana
           </h1>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 text-base md:text-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-sm md:text-base tracking-widest uppercase">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5" />
-              <span>October 2026</span>
+              <span>18th October 2026</span>
             </div>
             <div className="hidden md:block w-px h-6 bg-white/40" />
             <div className="flex items-center gap-2">

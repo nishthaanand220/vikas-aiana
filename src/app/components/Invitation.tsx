@@ -70,7 +70,7 @@ export default function Invitation() {
 
             <div className="my-8 py-8 border-t border-b border-[#D4A574]/30">
               <p className="text-lg mb-2">
-                <strong>October 20, 2026</strong>
+                <strong>18th October, 2026</strong>
               </p>
               <p className="text-base text-[#6B6B6B] mb-4">
                 6:00 AM onwards
