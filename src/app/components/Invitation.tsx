@@ -1,7 +1,29 @@
 import { motion } from "motion/react";
 import { Download, Share2 } from "lucide-react";
+import { useState } from "react";
 
 export default function Invitation() {
+  const [shareText, setShareText] = useState("Share Invitation");
+
+  const handleShare = async () => {
+    const shareData = {
+      title: 'Vikas & Aiana Wedding Invitation',
+      text: 'Join us to celebrate the wedding of Vikas and Aiana!',
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        setShareText("Link Copied!");
+        setTimeout(() => setShareText("Share Invitation"), 2000);
+      }
+    } catch (err) {
+      console.error('Error sharing:', err);
+    }
+  };
   return (
     <section id="invitation" className="py-16 md:py-24 px-4 bg-[#F5E6E0]">
       <div className="max-w-4xl mx-auto">
@@ -66,13 +88,20 @@ export default function Invitation() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <button className="px-6 py-3 bg-[#D4A574] text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#C49564] transition-colors">
+              <a 
+                href="/invitation.png" 
+                download="Vikas_Aiana_Wedding_Invitation.png"
+                className="px-6 py-3 bg-[#D4A574] text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#C49564] transition-colors"
+              >
                 <Download className="w-4 h-4" />
                 Download Invitation
-              </button>
-              <button className="px-6 py-3 bg-[#A7C4A0] text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#96B38F] transition-colors">
+              </a>
+              <button 
+                onClick={handleShare}
+                className="px-6 py-3 bg-[#A7C4A0] text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#96B38F] transition-colors"
+              >
                 <Share2 className="w-4 h-4" />
-                Share Invitation
+                {shareText}
               </button>
             </div>
           </div>
