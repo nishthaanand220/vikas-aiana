@@ -137,23 +137,6 @@ export default function TravelStay() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-white rounded-2xl shadow-lg aspect-video flex items-center justify-center overflow-hidden"
-        >
-          <iframe 
-            src="https://maps.google.com/maps?q=The%20Grand%20Palace,%20Rohtak,%20Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </motion.div>
       </div>
     </section>
   );
