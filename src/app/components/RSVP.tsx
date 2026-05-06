@@ -10,20 +10,46 @@ export default function RSVP() {
     dietary: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const events = ["Morning Pheras", "Evening Reception"];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    const subject = `Wedding RSVP: ${formData.name}`;
-    const body = `Name: ${formData.name}\nNumber of Guests: ${formData.guests}\nEvents Attending: ${formData.attending.length > 0 ? formData.attending.join(", ") : "None"}\nDietary Preferences: ${formData.dietary || "None"}`;
+    const submissionData = {
+      access_key: "d9cba38e-38c5-4d30-b0bf-3cef0d8f67d4",
+      subject: `Wedding RSVP: ${formData.name}`,
+      name: formData.name,
+      guests: formData.guests,
+      events_attending: formData.attending.length > 0 ? formData.attending.join(", ") : "None",
+      dietary_preferences: formData.dietary || "None"
+    };
 
-    const mailtoLink = `mailto:nishthaanand220@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
 
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: "", guests: "1", attending: [], dietary: "" });
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        alert("Something went wrong! Please try again.");
+      }
+    } catch (error) {
+      alert("Something went wrong! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const toggleEvent = (event: string) => {
@@ -120,9 +146,12 @@ export default function RSVP() {
 
             <button
               type="submit"
-              className="w-full py-4 bg-[#D4A574] text-white rounded-xl hover:bg-[#C49564] transition-colors flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="w-full py-4 bg-[#D4A574] text-white rounded-xl hover:bg-[#C49564] transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
             >
-              {submitted ? (
+              {isSubmitting ? (
+                "Sending..."
+              ) : submitted ? (
                 <>
                   <Check className="w-5 h-5" />
                   Confirmed!
